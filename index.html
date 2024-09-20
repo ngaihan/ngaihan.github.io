@@ -404,140 +404,75 @@ Developed and presented a comprehensive report, including a proof of concept, to
 
     <!-- Fourth Section: Projects -->
     <section id="projects" class="section scrollspy">
-      <h3 class="page-title white-text teal">Projects</h3>
+      <h3 class="page-title white-text teal">Projects</h3> 
       <div class="container">
-        <div class="row">
+        <div class="row" id="project-cards">
+          <!-- Dynamic content will be added here -->
+           <script>
+  // Wait until the DOM content is loaded
+  document.addEventListener('DOMContentLoaded', function() {
+      // Check if the 'projects' array exists
+      if (typeof projects !== 'undefined') {
+          // Sort the projects by date in ascending order
+          projects.sort((a, b) => a.date - b.date);
 
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="music streaming app" src="/assets/img/car_image.jpg" style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Car Identification Project<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  An AI program that can detect the model of any car.
-                </p>
-              </div>
-              <div class="card-reveal">
-                <!-- TODO: change this -- only close button -->
-                <!-- <span class="card-title brown-text">Accomplishments<i class="mdi-navigation-close right"></i></span> -->
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> Python, Pytorch 1.2</li>
-                  <li>Identify over 850 different car models with 82% accuracy.</li>
-                  <li>Data augmentation performed on Stanford Car Dataset to increase training data which improved accuracy by 12%</li>
-                  <li>Created the ability to identify cars in a video using CNN</li>
+          // Get the container where the project cards will be inserted
+          const projectCardsContainer = document.getElementById('project-cards');
+          projectCardsContainer.innerHTML = ''; // Clear any existing content
 
+          // Function to generate a project card
+          const createProjectCard = (project, imageSrc) => {
+              return `
+              <div class="col s12 m6 l4">
+                  <div class="card medium">
+                      <div class="card-image waves-effect waves-block waves-light">
+                          <img alt="${project.name}" src="${imageSrc}" style="height: 100%; width: 100%" class="activator" />
+                      </div>
+                      <div class="card-content">
+                          <span class="card-title activator teal-text hoverline">${project.name}<i class="mdi-navigation-more-vert right"></i></span>
+                          <p>${project.description}</p>
+                      </div>
+                      <div class="card-reveal">
+                          <span class="card-title grey-text"><small>Accomplishments</small><i class="mdi-navigation-close right"></i></span>
+                          <ul>
+                              <li><b>Tools:</b> ${project.tools}</li>
+                              <li>${project.bullet1}</li>
+                              <li>${project.bullet2}</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>`;
+          };
 
-                </ul>
-              </div>
-            </div>
-          </div>
+          // Iterate through the sorted projects array and generate cards
+          projects.forEach(project => {
+              let imageSrc = ''; // You can change this to be dynamic if needed
 
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="quiz app" src="/assets/img/processor_image.jpg" style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Hardware Processor<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  Built 16-bit processor from scratch.
-                </p>
-              </div>
-              <div class="card-reveal">
-                <!-- TODO: change this -- only close button -->
-                <!-- <span class="card-title brown-text">Accomplishments<i class="mdi-navigation-close right"></i></span> -->
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> Verilog, Assembly, C</li>
-                  <li>Created a processor on the DE1-SOC FPGA board using Verilog that runs programs through instruction encoding.</li>
-                  <li>Implemented an interrupt request handler and FSM using a combination of Verilog and C that significantly increased
-                    performance of input by 80%.</li>
+              // Determine the appropriate image based on the project name
+              if (project.name.includes('Car')) {
+                  imageSrc = '/assets/img/car_image.jpg';
+              } else if (project.name.includes('Hardware Processor')) {
+                  imageSrc = '/assets/img/processor_image.jpg';
+              } else if (project.name.includes('Geographic Information')) {
+                  imageSrc = '/assets/img/map_image.png';
+              }
 
-                </ul>
-              </div>
-            </div>
-          </div>
+              // Append the generated project card to the container
+              projectCardsContainer.innerHTML += createProjectCard(project, imageSrc);
+          });
+      } else {
+          console.error("projects array not found.");
+      }
+  });
+</script>
 
-          <!-- 1. Django Project -->
-          <!-- <div class="col s12 m6 l6">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="django web app" src="/assets/img/project-library-logo.png" style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Local Library Web-App<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  A web-app that creates an online catalog for a small local library, where users can browse available books and manage their accounts.
-                </p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> HTML, CSS, Bootstrap, SQLite, Django, Heroku</li>
-                  <li>Users can view list and detail information for books and authors.</li>
-                  <li>Admin users can create and manage models.</li>
-                  <li>Librarians can renew reserved books.</li>
-
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Visit " href="https://django-local-lib.herokuapp.com" target="_blank" data-position="top"
-                    data-tooltip="View Online"
-                    class="btn-floating btn-large waves-effect waves-light teal-grey tooltipped"><i
-                      class="fa fa-external-link"></i></a>
-                  <a aria-label="Visit the GitHub repo for  project" href="https://github.com/varadbhogayata/django-local-library"
-                    target="_blank" data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light teal-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- Flask Project -->
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="Screenshot of web app" src="/assets/img/map_image.png"
-                style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Geographic Information System<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  A map system that can solve the Traveling Salesman Problem.
-                </p>
-              </div>
-              <div class="card-reveal">
-                <!-- TODO: change this -- only close button -->
-                <!-- <span class="card-title brown-text">Accomplishments<i class="mdi-navigation-close right"></i></span> -->
-                <span class="card-title teal-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> C++, EZGL, Libcurl</li>
-                  <li>Developed a GIS application using C/C++ and the EZGL library (X11) to map 2GB of data sourced from
-                    OpenStreetMap.</li>
-                  <li>Implemented Dijkstra’s algorithm and the 2-opt heuristic to tackle the NP-hard Traveling Salesman Problem, leading
-                    my team to secure second place in the competition.</li>
-
-
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- ************* -->
         </div>
       </div>
     </section>
+    
+    <!-- Load external projects array -->
+    <script src="assets/vendor/typed.js/recent_projects.js"></script>
+    
 
     <!-- Fifth Section: Skills -->
     <section id="skills" class="section scrollspy">

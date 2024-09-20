@@ -17,7 +17,7 @@ let projects = [
     },
     {
         name: "Geographic Information System",
-        date: new Date(1634751960),
+        date: new Date(1674751960),
         description: "A map system that can solve the Traveling Salesman Problem.",
         tools: "C++, EZGL, Libcurl",
         bullet1: "Developed a GIS application using C/C++ and the EZGL library (X11) to map 2GB of data sourced from OpenStreetMap.",
