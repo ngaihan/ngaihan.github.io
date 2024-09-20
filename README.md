@@ -49,3 +49,17 @@ This repo was sourced from the
   </a>
   </kbd>
 </p>
+
+### Activity 5
+<p align="center"> 
+  <kbd>
+    <a href="https://varadbhogayata.github.io" target="_blank"><img src="assets/img/activity_5_homepage.png">
+  </a>
+  </kbd>
+</p>
+<p align="center"> 
+  <kbd>
+    <a href="https://varadbhogayata.github.io" target="_blank"><img src="assets/img/activity_5_repo.png">
+  </a>
+  </kbd>
+</p>
