@@ -19,3 +19,17 @@
   </a>
   </kbd>
 </p>
+
+### Activity 3
+<p align="center"> 
+  <kbd>
+    <a href="https://varadbhogayata.github.io" target="_blank"><img src="assets/img/activity_3_homepage.png">
+  </a>
+  </kbd>
+</p>
+<p align="center"> 
+  <kbd>
+    <a href="https://varadbhogayata.github.io" target="_blank"><img src="assets/img/activity_3_repo.png">
+  </a>
+  </kbd>
+</p>
