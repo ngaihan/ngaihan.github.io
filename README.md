@@ -33,3 +33,17 @@
   </a>
   </kbd>
 </p>
+
+### Activity 4
+<p align="center"> 
+  <kbd>
+    <a href="https://varadbhogayata.github.io" target="_blank"><img src="assets/img/activity_4_homepage.png">
+  </a>
+  </kbd>
+</p>
+<p align="center"> 
+  <kbd>
+    <a href="https://varadbhogayata.github.io" target="_blank"><img src="assets/img/activity_4_repo.png">
+  </a>
+  </kbd>
+</p>
